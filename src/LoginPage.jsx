@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
 import { schema } from "./schema";
+import InputField from "./InputField";
+
 
 const LoginPage = () => {
   //Formik'in butun ozelliklerini kullanmamizi saglayan hook
@@ -11,6 +13,8 @@ const LoginPage = () => {
     },
 
     //Validasyon semasi
+    //inputlardaki verileri semada kosullara uygun mu
+    //kontrol edicek gecerli degilse error stateinde //hatalari tutar
     validationSchema: schema,
 
     //form gonderilince calisacak olan fonksiyon
@@ -32,27 +36,13 @@ const LoginPage = () => {
         </h2>
 
         <form onSubmit={formik.handleSubmit}>
-          <div>
-            <label>Emailiniz</label>
-            <input
-              onChange={formik.handleChange}
-              name="email"
-              className="form-control mt-2"
-              type="email"
-            />
-            <span>E mail alani zorunludur</span>
-          </div>
+          <InputField formik={formik} data={{label:"Emailiniz", name:"email", type:"email" }}/>
 
-          <div>
-            <label>Yasiniz</label>
-            <input
-              onChange={formik.handleChange}
-              name="age"
-              className="form-control mt-2"
-              type="number"
-            />
-            <span>Yas alani zorunludur</span>
-          </div>
+          <InputField formik={formik} data={{label:"Yaşınız", name:"age", type:"number" }}/>
+
+
+      
+
           <button>Gonder</button>
         </form>
       </div>
