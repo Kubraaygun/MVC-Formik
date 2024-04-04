@@ -47,4 +47,5 @@ Formik, karmaşık form işlemlerini basitleştirir ve React uygulamalarında fo
 </ul>
 
 <h2>Ekran Görüntüsü</h2>
+
 ![](./public/mvcc.gif)
