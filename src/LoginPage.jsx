@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { schema } from "./schema";
 import InputField from "./InputField";
-
+import { inputs } from "./contant";
 
 const LoginPage = () => {
   //Formik'in butun ozelliklerini kullanmamizi saglayan hook
@@ -10,6 +10,8 @@ const LoginPage = () => {
     initialValues: {
       email: "",
       age: "",
+      password:"",
+      confirmPassword:"",
     },
 
     //Validasyon semasi
@@ -36,14 +38,11 @@ const LoginPage = () => {
         </h2>
 
         <form onSubmit={formik.handleSubmit}>
-          <InputField formik={formik} data={{label:"Emailiniz", name:"email", type:"email" }}/>
+          {inputs.map((data) => (
+            <InputField formik={formik} data={data} />
+          ))}
 
-          <InputField formik={formik} data={{label:"Yaşınız", name:"age", type:"number" }}/>
-
-
-      
-
-          <button>Gonder</button>
+          <button>Gönder</button>
         </form>
       </div>
     </div>

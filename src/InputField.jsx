@@ -1,7 +1,7 @@
-const InputField = ({ formik,data }) => {
-    const {label,name,type}=data
+const InputField = ({ formik, data }) => {
+  const { label, name, type } = data;
   return (
-    <div className={formik.touched.email && formik.errors.email && "error"}>
+    <div className={formik.touched[name] && formik.errors[name] && "error"}>
       <label>{label}</label>
       <input
         onChange={formik.handleChange}
@@ -10,7 +10,7 @@ const InputField = ({ formik,data }) => {
         className="form-control mt-2"
         type={type}
       />
-      <span>{formik.errors?.email}.</span>
+      <span>{formik.errors[name]}.</span>
     </div>
   );
 };
